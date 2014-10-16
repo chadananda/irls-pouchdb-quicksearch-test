@@ -1,5 +1,6 @@
 $(document).ready(function(){
-	var adapter = {adapter : 'websql'};
+	//var adapter = {adapter : 'websql'};
+  var adapter = {adapter : 'indexeddb'};
 	var db = new PouchDB('sentences', adapter);
 
 	$("#pouchbut").click(function(event) {
@@ -13,7 +14,7 @@ $(document).ready(function(){
 		}
 		function bulkInsert(filename){
 			$.getJSON( "resDocs/" + filename, function( data ) {
-				db.bulkDocs(data, function(err, response) { 
+				db.bulkDocs(data, function(err, response) {
 					if(!err){
 						$("<p>Done. Execution time " + ( (new Date() - start)/1000 ) + " seconds.</p>").prependTo( "#log" );
 					}
@@ -26,15 +27,15 @@ $(document).ready(function(){
     $("#destroy").click(function(event) {
     	$("<p>Deleting database. Please Wait...</p>").prependTo( "#log" );
     	var start = new Date();
-		PouchDB.destroy('sentences', function(err, info) {
-			if(!err){
-				db = new PouchDB('sentences', adapter);
-				$("<p>Deleting database done! Execution time " + ( (new Date() - start)/1000 ) + " seconds.</p>").prependTo( "#log" );
-			}
-			else {
-				console.log(err);
-			}
-		});
+  		PouchDB.destroy('sentences', function(err, info) {
+  			if(!err){
+  				db = new PouchDB('sentences', adapter);
+  				$("<p>Deleting database done! Execution time " + ( (new Date() - start)/1000 ) + " seconds.</p>").prependTo( "#log" );
+  			}
+  			else {
+  				console.log(err);
+  			}
+  		});
     });
 
     $("#buildbut").click(function(event) {
