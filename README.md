@@ -1,8 +1,10 @@
-irls-pouchdb-quicksearch-test
-=============================
+# Search-Test 
 
-Test of PouchDB Quicksearch for books
+Live indexing and data import test of books for
+ 
+ * PouchDB Quicksearch and
+ * Lunr.js 
 
-Live test: https://irls.isd.dp.ua/pouchdb_test/
+Live test: [http://chadananda.github.io/search-test]
 
 
