@@ -126,6 +126,13 @@ $(document).ready(function(){
         });
         logit("Lunr.js indexing done in " + ((new Date() - start)/1000) + " seconds. Index Size: "+
          formatByteSize(roughSizeOfObject(lunr_index)));
+
+        start = new Date();
+        var serializedIndex = JSON.stringify(lunr_index.toJSON());
+        var deserializedIndex = JSON.parse(serializedIndex);
+        var index2 = lunr.Index.load(deserializedIndex);
+        logit("Index was serialized then deserialized in " + ( (new Date() - start) ) + " ms.");
+
       }
       else logit(err, 'error');
     });
