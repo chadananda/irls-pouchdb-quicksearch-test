@@ -158,8 +158,9 @@ $(document).ready(function(){
       logit("Searching Lunr.js index for phrase '" + search_query + "'...");
       var results = lunr_index.search(search_query);
       logit(" Lunr.js search returned "+results.length+" results in " + ( (new Date() - start) ) + " ms.");
-      logit('<pre>' + JSON.stringify(results) + '</pre>');
-      logit('<pre>' + JSON.stringify(lunr_index.toJSON()) + '</pre>');
+      //logit('<pre>' + JSON.stringify(results) + '</pre>');
+      //logit('<pre>' + JSON.stringify(lunr_index.toJSON()) + '</pre>');
+      console.log(lunr_index.toJSON());
     }
     return false;
   });
