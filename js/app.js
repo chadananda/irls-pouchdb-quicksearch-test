@@ -101,6 +101,7 @@ $(document).ready(function(){
 			}).then(function (res) {
 				console.log(JSON.stringify(res));
 				logit("Total " + res.rows.length + " results -- in " + ( (new Date() - start)/1000 ) + " seconds.");
+        logit(res.rows);
 			});
   	}
     return false;
