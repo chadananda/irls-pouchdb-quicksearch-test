@@ -159,6 +159,7 @@ $(document).ready(function(){
       var results = lunr_index.search(search_query);
       logit(" Lunr.js search returned "+results.length+" results in " + ( (new Date() - start) ) + " ms.");
       logit('<pre>' + JSON.stringify(results) + '</pre>');
+      logit('<pre>' + JSON.stringify(lunr_index.toJSON()) + '</pre>');
     }
     return false;
   });
